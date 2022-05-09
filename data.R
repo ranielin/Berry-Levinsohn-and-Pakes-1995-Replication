@@ -1,0 +1,39 @@
+library(hdm)
+library(tidyverse)
+
+dat <- BLP$BLP %>%
+  mutate(price = price + 11.761,
+         year = cdid + 1970,
+         constant = 1) %>%
+  rename(market = cdid,
+         product = model.id,
+         firm = firm.id) %>%
+  arrange(market, product)
+
+X <- dat %>%
+  select(constant, hpwt, air, mpd, space)
+
+W <- dat %>%
+  mutate(ln_hpwt = log(hpwt), ln_mpg = log(mpg), ln_space = log(space)) %>%
+  select(constant, ln_hpwt, air, ln_mpg, ln_space, trend)
+
+p <- dat %>%
+  select(price)
+
+s <- dat %>%
+  select(share)
+
+s_s0 <- dat %>%
+  select(y)
+
+products_per_market <- dat %>%
+  group_by(market) %>%
+  summarise(size = n())
+  
+write_csv(dat, "./data/estimation/BLP_1995_data.csv")
+write_csv(X, "./data/estimation/X.csv")
+write_csv(W, "./data/estimation/W.csv")
+write_csv(s, "./data/estimation/s.csv")
+write_csv(s_s0, "./data/estimation/s_s0.csv")
+write_csv(products_per_market, "./data/estimation/products_per_market.csv")
+
