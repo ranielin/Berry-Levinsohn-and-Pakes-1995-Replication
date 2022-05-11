@@ -1,6 +1,6 @@
 import numpy as np
 
-def simulate_population(R, T, nu_mean, nu_var, D_mean = None, D_var = None):
+def draw_population(R, T, nu_mean, nu_var, D_mean = None, D_var = None):
 # generate random draws of consumer taste shocks nu_it ~ Normal(nu_mean, nu_var) and
 # consumer demographics D_it ~ Normal(D_mean_t, D_var_t) in each market separately
 # inputs:
