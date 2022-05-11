@@ -1,3 +1,6 @@
+# generate "BLP instruments" which come entirely from observed and
+# assumed exogenouos product characteristics to be used for demand estimation
+
 library(hdm)
 library(tidyverse)
 
