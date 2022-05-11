@@ -1,3 +1,6 @@
+# organize market-level automobile data from the hdm
+# package for estimation
+
 library(hdm)
 library(tidyverse)
 
@@ -10,22 +13,28 @@ dat <- BLP$BLP %>%
          firm = firm.id) %>%
   arrange(market, product)
 
+# exogenous product characteristics
 X <- dat %>%
-  select(constant, hpwt, air, mpd, space)
+  select(constant, hpwt, air, mpd, space) 
 
+# cost shifters
 W <- dat %>%
   mutate(ln_hpwt = log(hpwt), ln_mpg = log(mpg), ln_space = log(space)) %>%
   select(constant, ln_hpwt, air, ln_mpg, ln_space, trend)
 
+# prices
 p <- dat %>%
   select(price)
 
+# observed market shares
 s <- dat %>%
   select(share)
 
+# ln(market share / outside share)
 s_s0 <- dat %>%
   select(y)
 
+# number of products in each market t = 1, ..., T
 products_per_market <- dat %>%
   group_by(market) %>%
   summarise(size = n())
