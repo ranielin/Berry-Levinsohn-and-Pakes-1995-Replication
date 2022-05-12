@@ -30,5 +30,4 @@ D = np.exp(D) # exponentiate log(income)
 # and ones as the sigma coefficients of the taste heterogeneity
 delta = np.array(pd.read_csv("./data/estimation/s_s0.csv"))
 sigma = np.identity(K+1)
-s = compute_shares(delta, None, sigma, X, p, nu, D, product_markets)
-# np.savetxt("s_computed.csv", s, delimiter = ",")
+s_model = compute_shares(delta, None, sigma, X, p, nu, D, product_markets)

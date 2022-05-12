@@ -16,9 +16,9 @@ def compute_shares(delta, gamma, sigma, X, p, nu, D, product_markets):
 #      in markets t = 1, ..., T
 #   product_markets, encodes the market corresponding to each product
 # output:
-#   s, vector of model-implied shares of each product in each market
+#   s_model, vector of model-implied shares of each product in each market
 
-    s = np.zeros(delta.size) # initialize predicted shares
+    s_model = np.zeros(delta.size) # initialize predicted shares
     K = X.shape[1] # number of product characteristics
     R = nu.shape[1] # number of simulated individuals
     
@@ -45,5 +45,5 @@ def compute_shares(delta, gamma, sigma, X, p, nu, D, product_markets):
 
         # estimate market shares as equally-weighted average across individuals
         s_jt = np.average(s_ijt, axis = 1)
-        s[np.where(product_markets == t)[0]] = s_jt
-    return s
+        s_model[np.where(product_markets == t)[0]] = s_jt
+    return s_model
