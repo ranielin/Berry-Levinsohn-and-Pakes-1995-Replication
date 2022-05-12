@@ -11,7 +11,9 @@ As explained in [Gandhi and Nevo (2021)](https://www.nber.org/papers/w29257), th
 
 Market-level data from BLP (1995) is obtained from the [hdm](https://cran.r-project.org/web/packages/hdm/index.html) (high-dimensional metrics) package for R. Census CPS data on the empirical distribution of income from 1971 to 1990 is obtained from [Gentzkow and Shapiro (2015)](https://web.stanford.edu/~gentzkow/research/)'s BLP replication repository.
 
-Following BLP (1995) directly, there are three sets of instruments used: exogenous product characteristics themselves (i.e., non-price attributes), sums of the characteristics of other products produced by the same firm in the same market, and sums of the characteristics of products produced by other rival firms in the same market.
+Following BLP (1995) directly, there are three sets of instruments used for the demand-side: exogenous product characteristics themselves (i.e., non-price attributes), sums of the characteristics of other products produced by the same firm in the same market, and sums of the characteristics of products produced by other rival firms in the same market.
+
+Supply-side instruments are similarly constructed, and include exogenous cost shifters, sums of the cost-shifters of other products produced by the same firm in the same market, sums of the cost-shifters of products produced by other rival firms in the same market, as well as the demand variable excluded from the pricing equation (miles per dollar).
 
 ## Simulation of Market Shares
 
