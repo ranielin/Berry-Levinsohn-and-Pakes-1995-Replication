@@ -8,7 +8,7 @@ def compute_shares(delta, gamma, sigma, X, p, nu, D, product_markets):
 #   gamma, (K + 1) x L matrix of random coefficients of demographics
 #   sigma, (K + 1) x (K + 1) diagonal matrix of random coefficients of 
 #          unobserved heterogeneity 
-#   X, matrix of observed characteristics of each product-market combination
+#   X, matrix of observed characteristics of each product in each market
 #   p, vector of prices of each product in each market
 #   nu, K x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
 #       product characteristics k = 1, ..., K in markets t = 1, ..., T
