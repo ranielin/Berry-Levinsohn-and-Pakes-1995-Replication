@@ -35,14 +35,13 @@ s_s0 <- dat %>%
   select(y)
 
 # number of products in each market t = 1, ..., T
-products_per_market <- dat %>%
-  group_by(market) %>%
-  summarise(size = n())
+product_markets <- dat %>%
+  select(market)
   
 write_csv(dat, "./data/estimation/BLP_1995_data.csv")
 write_csv(X, "./data/estimation/X.csv")
 write_csv(W, "./data/estimation/W.csv")
 write_csv(s, "./data/estimation/s.csv")
 write_csv(s_s0, "./data/estimation/s_s0.csv")
-write_csv(products_per_market, "./data/estimation/products_per_market.csv")
+write_csv(product_markets, "./data/estimation/product_markets.csv")
 

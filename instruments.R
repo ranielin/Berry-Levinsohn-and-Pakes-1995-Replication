@@ -25,12 +25,14 @@ for(idx in 1:nrow(dat)){
   this_product <- dat$product[idx]
   this_firm <- dat$firm[idx]
   
+  # sum across other products produced by the same firm
   same_firm_products <- dat %>%
     slice(-idx) %>%
     filter(market == this_market & firm == this_firm) %>%
     select(colnames(X)) %>%
     colSums()
   
+  # some across products produced by rival firms
   rival_firm_products <- dat %>%
     filter(market == this_market & firm != this_firm) %>%
     select(colnames(X)) %>%
