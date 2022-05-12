@@ -5,7 +5,7 @@ Replication of the estimation of demand for automobiles in [Berry, Levinsohn, an
 As explained in [Gandhi and Nevo (2021)](https://www.nber.org/papers/w29257), the BLP algorithm is itself quite simple to implement, but in practice many "bells and whistles" are needed to improve computational speed and efficiency. This code is a bare-bones implementation of the BLP algorithm that generally does not incorporate the most up-to-date practices for demand estimation developed by IO economists. To that end, for practical use of demand estimation, the following resources may be helpful:
 * [Conlon and Gortmaker (2020)](https://chrisconlon.github.io/site/pyblp.pdf) and associated [PyBLP](https://pyblp.readthedocs.io/en/stable/index.html) package for what is, to my knowledge, the current best practices for the estimation of demand in differentiated products industries
 * [Nevo (2000)](https://onlinelibrary.wiley.com/doi/10.1111/j.1430-9134.2000.00513.x) for a well-known "practitioner's guide" that provides additional tips and guidance on the implementation of BLP
-* [Berry and Haile (2021)](http://www.econ.yale.edu/~pah29/Foundations.pdf) for a broader overview of demand estimation in the industrial organization literature
+* [Berry and Haile (2021)](http://www.econ.yale.edu/~pah29/Foundations.pdf) for a broader overview of demand estimation and associated IO literature
 
 ## Data and Instruments
 
