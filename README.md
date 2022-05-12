@@ -15,3 +15,17 @@ Following BLP (1995) directly, there are three sets of instruments used: exogeno
 
 ## Simulation of Market Shares
 
+Prior to estimation, <img src="https://render.githubusercontent.com/render/math?math=R"> random draws are taken in each market <img src="https://render.githubusercontent.com/render/math?math=t = 1, \dots, T">. The random draws are simulated individuals' random taste shocks <img src="https://render.githubusercontent.com/render/math?math=\{\nu_{it}\}_{i=1}^R \sim N(0, 1)"> and incomes <img src="https://render.githubusercontent.com/render/math?math=\{\log(y_{it}\}_{i=1}^R) \sim N(\mu_{dt}, \sigma_{dt}^2)">, where <img src="https://render.githubusercontent.com/render/math?math=\mu_{dt}"> and  <img src="https://render.githubusercontent.com/render/math?math=\sigma_{dt}^2"> are empirical income estimates from Census data. 
+
+Model-implied market shares are approximated as <img src="https://render.githubusercontent.com/render/math?math=\sigma_{jt} = \frac{1}{R} \sum_{i = 1}^R \frac{\exp(\delta_{jt} %2b \sum_{l} x_{jt}^{(l)} \beta_{\nu}^{(l)} \nu_i^{(l)} - \alpha y_i / p_{jt})}{1 %2b \sum_{k = 1}^{J_t} \exp(\delta_{kt} %2b \sum_{l} x_{kt}^{(l)} \beta_{\nu}^{(l)} \nu_i^{(l)} - \alpha y_i / p_{kt})}"> where 
+* <img src="https://render.githubusercontent.com/render/math?math=\sigma_{jt}"> is the model-implied market share of product <img src="https://render.githubusercontent.com/render/math?math=j"> in market <img src="https://render.githubusercontent.com/render/math?math=t">
+* <img src="https://render.githubusercontent.com/render/math?math=\delta_{jt}"> is the mean utility of product <img src="https://render.githubusercontent.com/render/math?math=j"> in market <img src="https://render.githubusercontent.com/render/math?math=t"> 
+* <img src="https://render.githubusercontent.com/render/math?math=x_{jt}^{(l)}"> is the <img src="https://render.githubusercontent.com/render/math?math=l">'th observed characteristic of product <img src="https://render.githubusercontent.com/render/math?math=j"> in market <img src="https://render.githubusercontent.com/render/math?math=t"> 
+* <img src="https://render.githubusercontent.com/render/math?math=\beta_\nu^{(l)}"> is the non-linear random coefficient of the <img src="https://render.githubusercontent.com/render/math?math=l">'th product characteristic
+* <img src="https://render.githubusercontent.com/render/math?math=\alpha"> is the price coefficient
+* <img src="https://render.githubusercontent.com/render/math?math=p_{jt}"> is the price of product <img src="https://render.githubusercontent.com/render/math?math=j"> in market <img src="https://render.githubusercontent.com/render/math?math=t">.
+
+This is a simpler scheme than the original procedure used in BLP (1995), which incorporates importance sampling to reduce simulation error.
+
+## Contraction Mapping
+
