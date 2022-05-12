@@ -1,4 +1,4 @@
-from numpy import np
+import numpy as np
 
 def compute_shares(delta, gamma, sigma, X, p, nu, D, product_markets):
 # computes model-implied market shares given mean utilities and non-linear 
