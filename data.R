@@ -7,7 +7,10 @@ library(tidyverse)
 dat <- BLP$BLP %>%
   mutate(price = price + 11.761,
          year = cdid + 1970,
-         constant = 1) %>%
+         constant = 1,
+         ln_hpwt = log(hpwt),
+         ln_mpg = log(mpg),
+         ln_space = log(space)) %>%
   rename(market = cdid,
          product = model.id,
          firm = firm.id) %>%
@@ -19,7 +22,6 @@ X <- dat %>%
 
 # cost shifters
 W <- dat %>%
-  mutate(ln_hpwt = log(hpwt), ln_mpg = log(mpg), ln_space = log(space)) %>%
   select(constant, ln_hpwt, air, ln_mpg, ln_space, trend)
 
 # prices
