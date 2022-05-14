@@ -39,6 +39,10 @@ s_s0 <- dat %>%
 # number of products in each market t = 1, ..., T
 product_markets <- dat %>%
   select(market)
+
+# firm producing each product
+product_firms <- dat %>%
+  select(firm)
   
 write_csv(dat, "./data/estimation/BLP_1995_data.csv")
 write_csv(X, "./data/estimation/X.csv")
@@ -46,4 +50,5 @@ write_csv(W, "./data/estimation/W.csv")
 write_csv(s, "./data/estimation/s.csv")
 write_csv(s_s0, "./data/estimation/s_s0.csv")
 write_csv(product_markets, "./data/estimation/product_markets.csv")
+write_csv(product_firms, "./data/estimation/product_firms.csv")
 
