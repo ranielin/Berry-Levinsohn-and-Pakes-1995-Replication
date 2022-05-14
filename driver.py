@@ -4,10 +4,13 @@ import pandas as pd
 from draw_population import *
 from compute_shares import *
 from contraction_mapping import *
+from compute_omega import *
+from bertrand_mc import *
 
 # load data
 X = np.array(pd.read_csv("./data/estimation/X.csv")) 
 product_markets = np.array(pd.read_csv("./data/estimation/product_markets.csv"))
+product_firms = np.array(pd.read_csv("./data/estimation/product_firms.csv"))
 p = np.array(pd.read_csv("./data/estimation/p.csv"))
 s = np.array(pd.read_csv("./data/estimation/s.csv"))
 
@@ -29,16 +32,19 @@ nu, D = draw_population(R, T, K, nu_mean, nu_var, D_mean, D_var)
 D = 1/np.exp(D) # inverse of exp(log(income)) to get 1/y_i
 
 # test contraction mapping using ln(s/s0) as the initial guess
-# and ones as the nonlinear coefficients
 # in BLP, gamma = [alpha, 0, ..., 0]^T, sigma = diag(0, beta_nu(1), ..., beta_nu(L))
 delta_0 = np.array(pd.read_csv("./data/estimation/s_s0.csv"))
 sigma = np.identity(K + 1)
 sigma[0, 0] = 0
 gamma = np.zeros((K + 1, 1))
-gamma[0] = 1 
+gamma[0] = 40
 tol = 1e-12
 delta = contraction_mapping(delta_0, s, gamma, sigma, X, p, nu, D, product_markets, tol)
 
 # test computation of shares
 s_model = compute_shares(delta, gamma, sigma, X, p, nu, D, product_markets)[0]
 np.max(np.abs(s_model - s))
+
+# test computation of marginal costs and share-price derivatives
+mc = bertrand_mc(delta, s, gamma, sigma, X, p, nu, D, product_markets, product_firms)
+omega = compute_omega(delta, gamma, sigma, X, p, nu, D, product_markets, product_firms)

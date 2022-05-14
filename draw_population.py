@@ -19,6 +19,8 @@ def draw_population(R, T, K, nu_mean, nu_var, D_mean = None, D_var = None):
 #   D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
 #      in markets t = 1, ..., T
 
+    # draw hetereogeneous taste shocks from parametric distribution
+    # in BLP, nu_alpha = 0 
     nu_alpha = np.zeros((1, R, T))
     nu_beta = np.random.normal(nu_mean, pow(nu_var, 0.5), (K, R, T))
     nu = np.concatenate((nu_alpha, nu_beta), axis = 0)
@@ -29,6 +31,7 @@ def draw_population(R, T, K, nu_mean, nu_var, D_mean = None, D_var = None):
         else:
             L = np.shape(D_mean)[0]
 
+        # draw consumer demographics from given empirical distribution
         D = np.transpose(np.random.normal(D_mean, pow(D_var, 0.5), (R, L, T)), (1, 0, 2))
         return [nu, D]
     else:
