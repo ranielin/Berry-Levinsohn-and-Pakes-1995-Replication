@@ -14,8 +14,8 @@ def contraction_mapping(delta_0, s, gamma, sigma, X, p, nu, D, product_markets, 
 #          unobserved heterogeneity 
 #   X, matrix of observed characteristics of each product in each market
 #   p, vector of prices of each product in each market
-#   nu, K x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
-#       product characteristics k = 1, ..., K in markets t = 1, ..., T
+#   nu, (K + 1) x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
+#       prices and product characteristics k = 0, ..., K in markets t = 1, ..., T
 #   D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
 #      in markets t = 1, ..., T
 #   product_markets, encodes the market corresponding to each product

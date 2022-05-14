@@ -14,12 +14,14 @@ def draw_population(R, T, K, nu_mean, nu_var, D_mean = None, D_var = None):
 #   D_var, L x T array of variance of demographic variables l = 1, ..., L 
 #          in markets t = 1, ..., T
 # outputs:
-#   nu, K x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
-#       product characteristics k = 1, ..., K in markets t = 1, ..., T
+#   nu, (K + 1) x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
+#       prices and product characteristics k = 0, ..., K in markets t = 1, ..., T
 #   D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
 #      in markets t = 1, ..., T
 
-    nu = np.random.normal(nu_mean, pow(nu_var, 0.5), (K, R, T))
+    nu_alpha = np.zeros((1, R, T))
+    nu_beta = np.random.normal(nu_mean, pow(nu_var, 0.5), (K, R, T))
+    nu = np.concatenate((nu_alpha, nu_beta), axis = 0)
 
     if D_mean is not None:
         if np.ndim(D_mean) == 1:
