@@ -2,7 +2,7 @@
 
 Replication of the estimation of demand for automobiles in [Berry, Levinsohn, and Pakes (1995)](https://www.econometricsociety.org/publications/econometrica/1995/07/01/automobile-prices-market-equilibrium). The code provided is for expository purposes, i.e., to convey the basic fundamentals of the BLP demand estimation routine in an easy to understand format. A detailed walkthrough accompanying the code can be found at [tbd].
 
-This is a simplified, bare-bones replication of BLP that generally does not incorporate the most up-to-date practices for demand estimation. To that end, for practical use of demand estimation, the following resources may be helpful:
+This is a simplified, bare-bones replication of BLP that generally does not incorporate the most up-to-date practices for demand estimation. For practical use of demand estimation, the following resources may be helpful:
 * [Conlon and Gortmaker (2020)](https://chrisconlon.github.io/site/pyblp.pdf) and associated [PyBLP](https://pyblp.readthedocs.io/en/stable/index.html) package for what is, to my knowledge, the current best practices for the estimation of demand in differentiated products industries
 * [Nevo (2000)](https://onlinelibrary.wiley.com/doi/10.1111/j.1430-9134.2000.00513.x) for a well-known "practitioner's guide" that provides additional tips and guidance on the implementation of BLP
 * [Berry and Haile (2021)](http://www.econ.yale.edu/~pah29/Foundations.pdf) for a broader overview of demand estimation and associated IO literature
