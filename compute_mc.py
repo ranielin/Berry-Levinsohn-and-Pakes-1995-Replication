@@ -55,7 +55,7 @@ def compute_omega(delta, gamma, sigma, X, p, product_markets, product_firms, nu,
     # market
     for t in np.unique(product_markets):
         f_t = product_firms[np.where(product_markets == t)[0]] # list of firms in market t
-        D_t = D[:, :, t-1] # simulated conumser demographics in market t
+        D_t = D[:, :, t-1] # simulated consumer demographics in market t
         alpha = np.matmul(gamma[0, :], D_t) # simulated price coefficients alpha_i
 
         # iterate through each firm in market t
