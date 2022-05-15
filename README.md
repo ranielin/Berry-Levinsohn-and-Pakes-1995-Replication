@@ -1,8 +1,8 @@
 # Berry, Levinsohn, and Pakes (1995) Replication
 
-Replication of the estimation of demand for automobiles in [Berry, Levinsohn, and Pakes (1995)](https://www.econometricsociety.org/publications/econometrica/1995/07/01/automobile-prices-market-equilibrium). The code provided is for *expository* purposes, i.e., to convey the basic fundamentals of the BLP demand estimation routine in an easy to understand format. A detailed walkthrough accompanying the code can be found at [tbd].
+Replication of the estimation of demand for automobiles in [Berry, Levinsohn, and Pakes (1995)](https://www.econometricsociety.org/publications/econometrica/1995/07/01/automobile-prices-market-equilibrium). The code provided is for expository purposes, i.e., to convey the basic fundamentals of the BLP demand estimation routine in an easy to understand format. A detailed walkthrough accompanying the code can be found at [tbd].
 
-This code is a bare-bones implementation of the BLP algorithm that generally does not incorporate the most up-to-date practices for demand estimation developed by IO economists. To that end, for practical use of demand estimation, the following resources may be helpful:
+This is a simplified, bare-bones replication of BLP that generally does not incorporate the most up-to-date practices for demand estimation. To that end, for practical use of demand estimation, the following resources may be helpful:
 * [Conlon and Gortmaker (2020)](https://chrisconlon.github.io/site/pyblp.pdf) and associated [PyBLP](https://pyblp.readthedocs.io/en/stable/index.html) package for what is, to my knowledge, the current best practices for the estimation of demand in differentiated products industries
 * [Nevo (2000)](https://onlinelibrary.wiley.com/doi/10.1111/j.1430-9134.2000.00513.x) for a well-known "practitioner's guide" that provides additional tips and guidance on the implementation of BLP
 * [Berry and Haile (2021)](http://www.econ.yale.edu/~pah29/Foundations.pdf) for a broader overview of demand estimation and associated IO literature
@@ -27,7 +27,7 @@ Model-implied market shares are approximated as <img src="https://render.githubu
 * <img src="https://render.githubusercontent.com/render/math?math=\alpha"> is the price coefficient
 * <img src="https://render.githubusercontent.com/render/math?math=p_{jt}"> is the price of product <img src="https://render.githubusercontent.com/render/math?math=j"> in market <img src="https://render.githubusercontent.com/render/math?math=t">.
 
-This is a simpler scheme than the original procedure used in BLP (1995), which incorporates importance sampling to reduce simulation error.
+This is a simpler approach than the original procedure used in BLP (1995), which incorporates importance sampling to reduce simulation error.
 
 ### Contraction Mapping
 
@@ -37,7 +37,7 @@ As shown in BLP (1995), this sequence of mean utilities converges to the unique 
 
 ### Recovering Marginal Costs
 
-Similar to the simulation of market shares, share-price derivatives are numerically approximated by averaging across simulated individuals so that <img src="https://render.githubusercontent.com/render/math?math=-d\tilde\sigma_{mt}/dp_{nt} \approx \begin{cases} \frac{1}{R} \sum_{i=1}^{R} [\frac{\alpha}{y_i} f_{imt} (1 - f_{imt})] \quad \text{if} \quad m = n \\ \frac{1}{R} \sum_{i=1}^{R} [\frac{\alpha}{y_i} f_{imt} f_{int}] \quad \text{if} \quad m \ne n \end{cases}">
+Similar to the simulation of market shares, share-price derivatives are numerically approximated by averaging across simulated individuals so that <img src="https://render.githubusercontent.com/render/math?math=-d\tilde\sigma_{mt}/dp_{nt} \approx \begin{cases} \frac{1}{R} \sum_{i=1}^{R} [\frac{\alpha}{y_i} f_{imt} (1 - f_{imt})] \quad \text{if} \quad m = n \\ \frac{1}{R} \sum_{i=1}^{R} [-\frac{\alpha}{y_i} f_{imt} f_{int}] \quad \text{if} \quad m \ne n \end{cases}">
 
 where <img src="https://render.githubusercontent.com/render/math?math=f_{imt}"> is the probability of (simulated) individual <img src="https://render.githubusercontent.com/render/math?math=i"> choosing product <img src="https://render.githubusercontent.com/render/math?math=m"> in market <img src="https://render.githubusercontent.com/render/math?math=t">.
 
