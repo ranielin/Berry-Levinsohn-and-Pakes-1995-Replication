@@ -7,12 +7,13 @@ from compute_mc import *
 def objective(theta_2, phi, delta_0, tol, s, X, W, p, Z, Z_s, product_markets, product_firms, nu, D):
 # compute GMM objective function
 # inputs:
-#   phi, GMM weighting matrix
+#   theta_2, length L + 1 vector [alpha, sigma_1, ..., sigma_L] 
+#            of non-linear parameters
+#   phi, GMM weight matrix
 #   delta_0, vector of initial guesses of product market mean utilities
 #   tol, tolerance level at which to stop the contraction mapping iteration
-#   theta_2, vector of nonlinear parameters
 #   s, vector of observed market shares of each product in each market
-#   X, matrix of observed characteristics of each product in each market
+#   X, matrix of observed product demand characteristics in each market
 #   W, matrix of observed supply-side cost shifters in each market
 #   p, vector of prices of each product in each market
 #   Z, matrix of demand-side instruments
