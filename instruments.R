@@ -59,8 +59,8 @@ Z1 <- W
 # Z3, sum of w_j't where j' is produced by firms other than firm j
 Z2 <- data.frame(matrix(0, nrow(W), ncol(W))) 
 Z3 <- data.frame(matrix(0, nrow(W), ncol(W))) 
-colnames(Z2) <- paste0("same_firm_", colnames(X))
-colnames(Z3) <- paste0("rival_firm_", colnames(X))
+colnames(Z2) <- paste0("same_firm_", colnames(W))
+colnames(Z3) <- paste0("rival_firm_", colnames(W))
 
 for(idx in 1:nrow(dat)){
   this_market <- dat$market[idx]
@@ -85,5 +85,6 @@ for(idx in 1:nrow(dat)){
   
 }
 
-Z_s <- cbind(Z1, Z2, Z3, X$mpd)
+Z_s <- cbind(Z1, Z2, Z3, X$mpd) %>%
+  select(-rival_firm_trend) # remove due to collinearity
 write_csv(Z_s, "./data/estimation/Z_s.csv")

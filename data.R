@@ -8,6 +8,7 @@ dat <- BLP$BLP %>%
   mutate(price = price + 11.761,
          year = cdid + 1970,
          constant = 1,
+         trend = trend + 71,
          ln_hpwt = log(hpwt),
          ln_mpg = log(mpg),
          ln_space = log(space)) %>%
