@@ -1,6 +1,6 @@
 # Berry, Levinsohn, and Pakes (1995) Replication
 
-Replication of the estimation of demand for automobiles in [Berry, Levinsohn, and Pakes (1995)](https://www.econometricsociety.org/publications/econometrica/1995/07/01/automobile-prices-market-equilibrium). The code provided replicates the point estimates of all linear and non-linear parameters (i.e., the first "parameter estimates" column of Table IV) in BLP (1995).
+Replication of the estimation of demand for automobiles in [Berry, Levinsohn, and Pakes (1995)](https://www.econometricsociety.org/publications/econometrica/1995/07/01/automobile-prices-market-equilibrium). The code provided replicates the point estimates of all linear and non-linear parameters (the first "parameter estimates" column of Table IV) in BLP (1995).
 
 This replication is for expository purposes, i.e., to convey the basic fundamentals of the BLP demand estimation routine in an easy to understand format, which may not incorporate the most up-to-date practices for demand estimation. For practical uses of demand estimation, the following resources may be helpful:
 * [Conlon and Gortmaker (2020)](https://chrisconlon.github.io/site/pyblp.pdf) and associated [PyBLP](https://pyblp.readthedocs.io/en/stable/index.html) Python library for what is, to my knowledge, the current best practices for the estimation of demand in differentiated products industries
