@@ -11,7 +11,7 @@ def compute_mc(delta, gamma, sigma, s, X, p, product_markets, product_firms, nu,
 #   sigma, (K + 1) x (K + 1) diagonal matrix of random coefficients of 
 #          unobserved heterogeneity 
 #   s, vector of observed market shares of each product in each market
-#   X, matrix of observed characteristics of each product in each market
+#   X, matrix of observed product demand characteristics in each market
 #   p, vector of prices of each product in each market
 #   product_markets, encodes the market corresponding to each product
 #   product_firms, encodes the firm corresponding to each product

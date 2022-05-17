@@ -7,8 +7,6 @@ This replication is for expository purposes, i.e., to convey the basic fundament
 * [Nevo (2000)](https://onlinelibrary.wiley.com/doi/10.1111/j.1430-9134.2000.00513.x) for a well-known "practitioner's guide" that provides additional tips and guidance on the implementation of BLP
 * [Berry and Haile (2021)](http://www.econ.yale.edu/~pah29/Foundations.pdf) for a broader overview of demand estimation and associated IO literature
 
-A detailed walkthrough accompanying the code can be found at [tbd].
-
 ### Data and Instruments
 
 Market-level data from BLP (1995) is obtained from the [hdm](https://cran.r-project.org/web/packages/hdm/index.html) (high-dimensional metrics) package for R. Census CPS data on the empirical distribution of income from 1971 to 1990 is obtained from [Gentzkow and Shapiro (2016)](https://web.stanford.edu/~gentzkow/research/blp_replication.zip)'s BLP replication repository.
@@ -50,7 +48,7 @@ Firms are assumed to set prices in a static Bertrand-Nash equilibrium. From the 
 The objective function to minimize is <img src="https://render.githubusercontent.com/render/math?math=Q(\theta) = (\frac{1}{N} \sum_{j, t} g_{jt}(\theta)^T) \Phi^{-1} (\frac{1}{N} \sum_{j, t} g_{jt}(\theta))">, where
 * <img src="https://render.githubusercontent.com/render/math?math=\theta"> are the linear and non-linear model parameters
 * <img src="https://render.githubusercontent.com/render/math?math=N"> = <img src="https://render.githubusercontent.com/render/math?math=\sum_t J_t"> denotes the total number of observations 
-* <img src="https://render.githubusercontent.com/render/math?math=g_{jt}(\theta)"> is a vector whose m'th entry is the interacted term <img src="https://render.githubusercontent.com/render/math?math=z_{mjt} \xi_{jt}(\theta)">, where <img src="https://render.githubusercontent.com/render/math?math=z_{mjt}"> is the <img src="https://render.githubusercontent.com/render/math?math=m">'th demand or supply instrument and <img src="https://render.githubusercontent.com/render/math?math=\xi_{jt}(\theta)"> is the corresponding model-implied demand or supply structural error
+* <img src="https://render.githubusercontent.com/render/math?math=g_{jt}(\theta)"> is a vector whose <img src="https://render.githubusercontent.com/render/math?math=m">'th entry is the interacted term <img src="https://render.githubusercontent.com/render/math?math=z_{mjt} \xi_{jt}(\theta)">, where <img src="https://render.githubusercontent.com/render/math?math=z_{mjt}"> is the <img src="https://render.githubusercontent.com/render/math?math=m">'th demand or supply instrument and <img src="https://render.githubusercontent.com/render/math?math=\xi_{jt}(\theta)"> is the corresponding model-implied demand or supply structural error
 * <img src="https://render.githubusercontent.com/render/math?math=\Phi"> is an appropriate GMM weight matrix.
 
 Let <img src="https://render.githubusercontent.com/render/math?math=\theta = (\theta_1, \theta_2)"> denote the linear and non-linear model parameters, respectively. As described in Nevo (2000), <img src = "https://render.githubusercontent.com/render/math?math=\theta_1"> can be recovered for given values of <img src="https://render.githubusercontent.com/render/math?math=\theta_2"> using the IV projection matrix <img src="https://render.githubusercontent.com/render/math?math=Z \Phi^{-1} Z^T">, so it is sufficient to maximize <img src="https://render.githubusercontent.com/render/math?math=Q(\theta)"> over <img src="https://render.githubusercontent.com/render/math?math=\theta_2">.
