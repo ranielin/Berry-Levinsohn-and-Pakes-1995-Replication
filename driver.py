@@ -27,7 +27,7 @@ T = np.unique(product_markets).size # number of markets
 K = X.shape[1] # number of characteristics per product
 K_s = W.shape[1] # number of cost-shifters
 M = Z.shape[1] # number of demand-side instruments
-N = Z_s.shape[1] # number of supply-side instruments
+M_s = Z_s.shape[1] # number of supply-side instruments
 
 # generate random draws separately in each market
 D_mean = np.array(pd.read_csv("./data/raw/meanincome.csv", header = None).iloc[:, 1])
@@ -46,7 +46,7 @@ delta_0 = np.array(pd.read_csv("./data/estimation/s_s0.csv"))
 theta_2_start = np.array(pd.read_csv("./data/raw/theta_2_start.csv"))[:, 1]
 tol = 1e-12
 bounds = ((0, np.inf),) * theta_2_start.shape[0]
-phi = np.identity(M + N)
+phi = np.identity(M + M_s)
 
 gmm_1 = scipy.optimize.minimize(objective, theta_2_start, args = (
     phi, delta_0, tol, s, X, W, p, Z, Z_s, product_markets, product_firms, nu, D
@@ -78,7 +78,7 @@ theta_1 = np.linalg.inv(X_full.T @ Z_full @ np.linalg.inv(phi) @ Z_full.T @ X_fu
     X_full.T @ Z_full @ np.linalg.inv(phi) @ Z_full.T @ delta_full) # IV projection
 
 xi = delta_full - X_full @ theta_1 # structural errors
-g_jt = Z_full *  xi # obs x (M + N) matrix, each row is g_jt for a unique j, t observation
+g_jt = Z_full *  xi # obs x (M + M_s) matrix, each row is g_jt for a unique j, t observation
 
 phi = (1 / obs) * g_jt.T @ g_jt # sample variance-covariance matrix of g_jt vectors 
 np.savetxt("./output/gmm_phi_estimate.csv", phi, delimiter=",")
