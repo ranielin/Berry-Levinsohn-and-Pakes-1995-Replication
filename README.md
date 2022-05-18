@@ -7,7 +7,7 @@ This replication is for expository purposes, i.e., to convey the basic fundament
 * [Nevo (2000)](https://onlinelibrary.wiley.com/doi/10.1111/j.1430-9134.2000.00513.x) for a well-known "practitioner's guide" that provides additional tips and guidance on the implementation of BLP
 * [Berry and Haile (2021)](http://www.econ.yale.edu/~pah29/Foundations.pdf) for a broader overview of demand estimation and associated IO literature
 
-A walkthrough of this replication can be fouund [here](https://ranielin.github.io/files/blp.html).
+A walkthrough of this replication can be found [here](https://ranielin.github.io/files/blp.html).
 
 ### Data and Instruments
 
@@ -39,7 +39,7 @@ As shown in BLP (1995), this sequence of mean utilities converges to the unique 
 
 ### Recovering Marginal Costs
 
-Similar to the simulation of market shares, share-price derivatives are numerically approximated by averaging across simulated draws so that <img src="https://render.githubusercontent.com/render/math?math=-d\tilde\sigma_{jt}/dp_{kt} = \frac{d \tilde \sigma_{jt}}{d p_{kt}} = \begin{cases} \frac{1}{R} \sum_{i = 1}^R [\frac{\alpha}{y_{it}} f_{ijt}(1 - f_{ijt})] \quad j = k \\ - \frac{1}{R}[\sum_{i = 1}^R \frac{\alpha}{y_{it}} f_{ijt} f_{ikt}] \qquad \: \ j \ne k \end{cases}">
+Similar to the simulation of market shares, share-price derivatives are numerically approximated by averaging across simulated draws so that <img src="https://render.githubusercontent.com/render/math?math=-\frac{d \tilde \sigma_{jt}}{d p_{kt}} = \begin{cases} \frac{1}{R} \sum_{i = 1}^R [\frac{\alpha}{y_{it}} f_{ijt}(1 - f_{ijt})] \quad j = k \\ - \frac{1}{R}[\sum_{i = 1}^R \frac{\alpha}{y_{it}} f_{ijt} f_{ikt}] \qquad \: \ j \ne k \end{cases}">
 
 where <img src="https://render.githubusercontent.com/render/math?math=f_{ijt}"> is the probability, conditional on <img src="https://render.githubusercontent.com/render/math?math=D_{it}"> and <img src="https://render.githubusercontent.com/render/math?math=\nu_{it}">, of choosing product <img src="https://render.githubusercontent.com/render/math?math=j"> in market <img src="https://render.githubusercontent.com/render/math?math=t">.
 
