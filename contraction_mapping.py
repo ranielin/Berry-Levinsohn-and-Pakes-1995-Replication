@@ -56,7 +56,7 @@ def compute_shares(delta, gamma, sigma, X, p, product_markets, nu, D):
         D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
                 in markets t = 1, ..., T
                 
-    output:
+    outputs:
         s_model, vector of model-implied shares of each product in each market
         f_model, matrix of model-implied individual choice probabilities of each product
                     in each market conditional on values of nu_i and D_i
