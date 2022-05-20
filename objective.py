@@ -5,27 +5,31 @@ from contraction_mapping import *
 from compute_mc import *
 
 def objective(theta_2, phi, delta_0, tol, s, X, W, p, Z, Z_s, product_markets, product_firms, nu, D):
-# compute GMM objective function
-# inputs:
-#   theta_2, length L + 1 vector [alpha, sigma_1, ..., sigma_L] 
-#            of non-linear parameters
-#   phi, GMM weight matrix
-#   delta_0, vector of initial guesses of product market mean utilities
-#   tol, tolerance level at which to stop the contraction mapping iteration
-#   s, vector of observed market shares of each product in each market
-#   X, matrix of observed product demand characteristics in each market
-#   W, matrix of observed supply-side cost shifters in each market
-#   p, vector of prices of each product in each market
-#   Z, matrix of demand-side instruments
-#   Z_s, matrix of supply-side instruments
-#   product_markets, encodes the market corresponding to each product
-#   product_firms, encodes the firm corresponding to each product
-#   nu, (K + 1) x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
-#       prices and product characteristics k = 0, ..., K in markets t = 1, ..., T
-#   D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
-#      in markets t = 1, ..., Tt
-# output:
-#   val, value of GMM objective function at the given parameters
+    """
+    compute GMM objective function
+
+    inputs:
+        theta_2, length L + 1 vector [alpha, sigma_1, ..., sigma_L] 
+                    of non-linear parameters
+        phi, GMM weight matrix
+        delta_0, vector of initial guesses of product market mean utilities
+        tol, tolerance level at which to stop the contraction mapping iteration
+        s, vector of observed market shares of each product in each market
+        X, matrix of observed product demand characteristics in each market
+        W, matrix of observed supply-side cost shifters in each market
+        p, vector of prices of each product in each market
+        Z, matrix of demand-side instruments
+        Z_s, matrix of supply-side instruments
+        product_markets, encodes the market corresponding to each product
+        product_firms, encodes the firm corresponding to each product
+        nu, (K + 1) x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
+                prices and product characteristics k = 0, ..., K in markets t = 1, ..., T
+        D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
+            in markets t = 1, ..., Tt
+
+    output:
+        val, value of GMM objective function at the given parameters
+    """
 
     obs = X.shape[0] # number of total observations
     K = X.shape[1] # number of product characteristics
