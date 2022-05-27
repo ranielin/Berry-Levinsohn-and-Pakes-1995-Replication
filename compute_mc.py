@@ -20,7 +20,7 @@ def compute_mc(delta, gamma, sigma, s, X, p, product_markets, product_firms, nu,
         nu, (K + 1) x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
             prices and product characteristics k = 0, ..., K in markets t = 1, ..., T
         D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
-        in markets t = 1, ..., T
+            in markets t = 1, ..., T
 
     output:
         mc, vector of marginal costs of each product in each market
