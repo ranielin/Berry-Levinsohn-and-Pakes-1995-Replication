@@ -17,9 +17,9 @@ def contraction_mapping(delta_0, tol, gamma, sigma, s, X, p, product_markets, nu
         p, vector of prices of each product in each market
         product_markets, encodes the market corresponding to each product
         nu, (K + 1) x R x T array of draws r = 1, ..., R of agents' heterogeneous tastes for 
-                prices and product characteristics k = 0, ..., K in markets t = 1, ..., T
-                D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
-                in markets t = 1, ..., T
+            prices and product characteristics k = 0, ..., K in markets t = 1, ..., T
+        D, L x R x T array of demographics l = 1, ..., L of agent draws r = 1, ..., R 
+            in markets t = 1, ..., T
 
     output:
         delta, vector of mean utilities equating predicted shares with observed
