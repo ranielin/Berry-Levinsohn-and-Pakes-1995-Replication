@@ -7,8 +7,6 @@ This replication is for expository purposes, i.e., to convey the basic fundament
 * [Nevo (2000)](https://onlinelibrary.wiley.com/doi/10.1111/j.1430-9134.2000.00513.x) for a well-known "practitioner's guide" that provides additional tips and guidance on the implementation of BLP
 * [Berry and Haile (2021)](http://www.econ.yale.edu/~pah29/Foundations.pdf) for a broader overview of demand estimation and associated IO literature
 
-A walkthrough of this replication can be found [here](https://ranielin.github.io/files/blp.html).
-
 ### Data and Instruments
 
 Market-level data from BLP (1995) is obtained from the [hdm](https://cran.r-project.org/web/packages/hdm/index.html) (high-dimensional metrics) package for R. Census CPS data on the empirical distribution of income from 1971 to 1990 is obtained from [Gentzkow and Shapiro (2016)](https://web.stanford.edu/~gentzkow/research/blp_replication.zip)'s BLP replication repository.
